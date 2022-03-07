@@ -51,10 +51,10 @@
 
       <nav id="nav-menu-container">
         <ul class="nav-menu">
-          <li class="menu-active"><a href="#intro">Beranda</a></li>
-          <li><a href="#about">Tentang Kami</a></li>
-          <li><a href="#speakers">Anggoa</a></li>
-          <li><a href="#schedule">Quotes</a></li>
+          <li class="menu-active"><a href="#intro">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#speakers">Speakers</a></li>
+          <li><a href="#schedule">Schedule</a></li>
           <li><a href="#venue">Venue</a></li>
           <li><a href="#hotels">Hotels</a></li>
           <li><a href="#gallery">Gallery</a></li>
@@ -72,10 +72,10 @@
   <section id="intro">
     <div class="intro-container wow fadeIn">
       <h1 class="mb-4 pb-0">The Annual<br><span>Marketing</span> Conference</h1>
-      <p class="mb-4 pb-0">07 March 2022, Bandung Conference Center, Jawa Barat</p>
+      <p class="mb-4 pb-0">10-12 December, Downtown Conference Center, New York</p>
       <a href="https://www.youtube.com/watch?v=jDDaplaOz7Q" class="venobox play-btn mb-4" data-vbtype="video"
         data-autoplay="true"></a>
-      <a href="#about" class="about-btn scrollto">About Us</a>
+      <a href="#about" class="about-btn scrollto">About The Event</a>
     </div>
   </section>
 
@@ -94,11 +94,11 @@
 				Kami berharap setelah lulus dari POLBAN mendapatkan pekerjaan yang kami impikan.</p>
           </div>
           <div class="col-lg-3">
-            <h3>Alamat</h3>
+            <h3>Where</h3>
             <p>Politeknik Negeri Bandung, Jl. Gegerkalong Hilir, Ciwaruga, Kec. Parongpong, Kabupaten Bandung Barat, Jawa Barat 40559 </p>
           </div>
           <div class="col-lg-3">
-            <h3>Tanggal</h3>
+            <h3>When</h3>
             <p>Senin<br>07-Maret-2022</p>
           </div>
         </div>
@@ -120,7 +120,7 @@
             <div class="speaker">
               <img src="img/speakers/1.jpg" alt="Speaker 1" class="img-fluid">
               <div class="details">
-                <h3><a href="speaker-details.html">Aini Nurul Azizah</a></h3>
+                <h3><a href="speaker-details.html">Brenden Legros</a></h3>
                 <p>Quas alias incidunt</p>
                 <div class="social">
                   <a href=""><i class="fa fa-twitter"></i></a>
@@ -135,7 +135,7 @@
             <div class="speaker">
               <img src="img/speakers/2.jpg" alt="Speaker 2" class="img-fluid">
               <div class="details">
-                <h3><a href="speaker-details.html">Amelia Natasha</a></h3>
+                <h3><a href="speaker-details.html">Hubert Hirthe</a></h3>
                 <p>Consequuntur odio aut</p>
                 <div class="social">
                   <a href=""><i class="fa fa-twitter"></i></a>
@@ -150,7 +150,7 @@
             <div class="speaker">
               <img src="img/speakers/3.jpg" alt="Speaker 3" class="img-fluid">
               <div class="details">
-                <h3><a href="speaker-details.html">Dea Salma</a></h3>
+                <h3><a href="speaker-details.html">Cole Emmerich</a></h3>
                 <p>Fugiat laborum et</p>
                 <div class="social">
                   <a href=""><i class="fa fa-twitter"></i></a>
@@ -165,7 +165,7 @@
             <div class="speaker">
               <img src="img/speakers/4.jpg" alt="Speaker 4" class="img-fluid">
               <div class="details">
-                <h3><a href="speaker-details.html">Jovan Shelomo</a></h3>
+                <h3><a href="speaker-details.html">Jack Christiansen</a></h3>
                 <p>Debitis iure vero</p>
                 <div class="social">
                   <a href=""><i class="fa fa-twitter"></i></a>
@@ -180,7 +180,7 @@
             <div class="speaker">
               <img src="img/speakers/5.jpg" alt="Speaker 5" class="img-fluid">
               <div class="details">
-                <h3><a href="speaker-details.html">Rachmat Purwa Saputra</a></h3>
+                <h3><a href="speaker-details.html">Alejandrin Littel</a></h3>
                 <p>Qui molestiae natus</p>
                 <div class="social">
                   <a href=""><i class="fa fa-twitter"></i></a>
@@ -218,7 +218,7 @@
       <div class="container wow fadeInUp">
         <div class="section-header">
           <h2>Event Schedule</h2>
-          <p>Ini adalah schedule kami selama perkuliahan daring :</p>
+          <p>Here is our event schedule</p>
         </div>
 
         <ul class="nav nav-tabs" role="tablist">
