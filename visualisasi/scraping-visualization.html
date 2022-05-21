@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Team B1 | Unified we succeed!</title>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta content="" name="keywords">
+  <meta content="" name="description">
+
+  <!-- Favicons -->
+  <link href="../img/logo.png" rel="icon">
+  <link href="../img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Raleway:300,400,500,700,800"
+    rel="stylesheet">
+
+  <!-- Bootstrap CSS File -->
+  <link href="../lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Libraries CSS Files -->
+  <link href="../lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+  <link href="../lib/animate/animate.min.css" rel="stylesheet">
+  <link href="../lib/venobox/venobox.css" rel="stylesheet">
+  <link href="../lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+  <!-- Main Stylesheet File -->
+  <link href="../css/style.css" rel="stylesheet">
+  
+  <!-- ChartJS Script -->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script> -->
+	<script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+	<script src="https://cdn.jsdelivr.net/npm/xlsx@0.14.3/dist/xlsx.full.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datasource@0.1.0"></script>
+
+  <!-- =======================================================
+    Theme Name: TheEvent
+    Theme URL: https://bootstrapmade.com/theevent-conference-event-bootstrap-template/
+    Author: BootstrapMade.com
+    License: https://bootstrapmade.com/license/
+  ======================================================= -->
+</head>
+
+<body>
+
+  <!--==========================
+    Header
+  ============================-->
+  <header id="header">
+    <div class="container">
+
+      <div id="logo" class="pull-left">
+        <!-- Uncomment below if you prefer to use a text logo -->
+        <!-- <h1><a href="#main">C<span>o</span>nf</a></h1>-->
+        <a href="#intro" class="scrollto"><img src="../img/logo.png" alt="" title="" ></a>
+      </div>
+
+      <nav id="nav-menu-container">
+        <ul class="nav-menu">
+          <li><a href="../index.html#intro">Beranda</a></li>
+          <li><a href="../index.html#about">Tentang Kami</a></li>
+          <li><a href="../index.html#speakers">Anggota</a></li>
+          <li><a href="../index.html#schedule">Praktikum</a></li>
+          <li><a href="../index.html#venue">JTK</a></li>
+          <li><a href="../index.html#supporters">Jadwal</a></li>
+          <li><a href="../index.html#faq">FAQ</a></li>
+          <li><a href="../index.html#contact">Contact</a></li>
+		  <li class="buy-tickets"><a href="scraping-visualization.html">Visualisasi</a></li>
+          <li class="buy-tickets"><a href="../speaker-details.html">Detail Anggota</a></li>
+        </ul>
+      </nav><!-- #nav-menu-container -->
+    </div>
+  </header><!-- #header -->
+
+
+  <!--==========================
+    Footer
+  ============================-->
+  <footer id="footer">
+    <div class="footer-top">
+      <div class="container">
+        <div class="section-header">
+		<br><br><br><br><br>
+          <h2><font color="white">VISUALIASI</h2>
+		  <h3><center><font color="white">Data Tender LPSE Kalimantan Timur<center></h3>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+		<br><br><br><canvas id="myChart" width="1600" height="900"></canvas>
+    </div>
+	
+	<div class="container">
+		<br><br><br><canvas id="myChart2" width="1600" height="900"></canvas>
+    </div>
+	
+	<div class="container">
+		<br><br><br><canvas id="myChart3" width="1600" height="900"></canvas>
+    </div>
+	
+	<div class="container">
+		<br><br><br><canvas id="myChart4" width="1600" height="900"></canvas>
+    </div>
+	
+	<div class="container">
+        <div class="row">
+          <div class="col-lg-8">
+			<br>
+            <p><b>* Keterangan Kode Tender </b></p>
+            <p>14640035 = Konstruksi Semenisasi Halaman Kantor dan Pembuatan Tempat Parkir
+            <br>14365035 = Peningkatan Jalan Semoi Sepaku - Petung (DAK Reguler)
+            <br>8997035  = Pembangunan Turap/Talud/Bronjong
+            <br>14718035 = Pembangunan Gedung Samsat Sangatta/UPTD Kutai Timur
+            <br>12429035 = Pembangunan Gedung Serbaguna SMKN 2 PPU
+            <br>14343035 = Pembangunan Saluran Drainase / Gorong - gorong Ruas Jalan Apt. Pranoto Samarinda
+            <br>15764035 = Pembangunan Ruang Kelas Baru (RKB) SMAN 2 Tenggarong
+            <br>14366035 = Peningkatan Jalan Tanjung Redeb - Talisayan 1 (DAK Penugasan)
+            <br>12133035 = Lanjutan Pembangunan Drainase Sekunder Balikpapan Baru Kota Balikpapan
+            <br>12722035 = Peningkatan Jalan di Kawasan Permukiman Perum Korpri Sempaja</p>
+          </div>
+        </div>
+    </div>
+	  
+	<div class="container">
+		<br><br><br><canvas id="myChart5" width="1600" height="900"></canvas>
+    </div>
+	
+	<div class="container">
+        <div class="row">
+          <div class="col-lg-6">
+		<br><br><br><br>
+		<center><h4><font color="white">Perusahaan Dengan Menang Terbanyak</font></h4>
+		<table class="table" border="0">
+		<thead>
+		<tr>
+		<th><center>NAMA PERUSAHAAN</th>
+		<th><center>JUMLAH MENANG</th>
+		</tr>
+		</thead>
+		<tbody><center>
+		<tr>
+			<td><center>PT. Super Tehnik Pratama</center></td>
+			<td><center>35</center></td>
+		</tr>
+		<tr>
+			<td><center>Adhi Teknik</center></td>
+			<td><center>24</center></td>
+		</tr>
+		<tr>
+			<td><center>PT ARCSINDO KARYA UTAMA</center></td>
+			<td><center>21</center></td>
+		</tr>
+		<tr>
+			<td><center>PT. ARISTA GEMILANG KONSULINDO</center></td>
+			<td><center>19</center></td>
+		</tr>
+		<tr>
+			<td><center>PT. TEKNIKAL GLOBAL KONSULTAN</center></td>
+			<td><center>18</center></td>
+		</tr>
+		</center></tbody>
+		</table>
+		<br><p><b>*Perusahaan Yang Tidak Pernah Menang Tidak Semuanya Disebutkan</b></p>
+		</div>
+		
+          <div class="col-lg-6">
+		<br><br><br><br>
+		<center><h4><font color="white">Perusahaan Tidak Pernah Menang</font></h4>
+		<table class="table" border="0">
+		<thead>
+		<tr>
+		<th><center>NAMA PERUSAHAAN</th>
+		<th><center>JUMLAH MENANG</th>
+		</tr>
+		</thead>
+		<tbody><center>
+		<tr>
+			<td><center>CV. CAHAYA BARONA</center></td>
+			<td><center>0</center></td>
+		</tr>
+		<tr>
+			<td><center>PT. WIRDHA MANDIRI</center></td>
+			<td><center>0</center></td>
+		</tr>
+		<tr>
+			<td><center>CV.ARS</center></td>
+			<td><center>0</center></td>
+		</tr>
+		<tr>
+			<td><center>PT. GEO INFORMATIKA SOLUSINDO</center></td>
+			<td><center>0</center></td>
+		</tr>
+		<tr>
+			<td><center>PT.FAJAR INDAH SEJATII/center></td>
+			<td><center>0</center></td>
+		</tr>
+		</center></tbody>
+		</table>
+		</div>
+		</div>
+	</div>
+	
+	<div class="container">
+		<br><br><br><canvas id="myChart6" width="1600" height="900"></canvas>
+    </div>
+	
+	<div class="container">
+		<br><br><br><canvas id="myChart7" width="1600" height="900"></canvas>
+    </div>
+	
+	<div class="container">
+		<br><br><br><canvas id="myChart8" width="1600" height="900"></canvas>
+    </div>
+	
+	<div class="container">
+		<br><br><br><canvas id="myChart9" width="1600" height="900"></canvas>
+    </div>
+	
+	<div class="container">
+		<br><br><br><canvas id="myChart10" width="1600" height="900"></canvas>
+    </div>
+
+  </footer><!-- #footer -->
+
+  <a href="#" class="back-to-top"><i class="fa fa-angle-up"></i></a>
+
+  <!-- JavaScript Libraries -->
+  <script src="lib/jquery/jquery.min.js"></script>
+  <script src="lib/jquery/jquery-migrate.min.js"></script>
+  <script src="lib/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="lib/easing/easing.min.js"></script>
+  <script src="lib/superfish/hoverIntent.js"></script>
+  <script src="lib/superfish/superfish.min.js"></script>
+  <script src="lib/wow/wow.min.js"></script>
+  <script src="lib/venobox/venobox.min.js"></script>
+  <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+
+  <!-- Contact Form JavaScript File -->
+  <script src="contactform/contactform.js"></script>
+
+  <!-- Template Main Javascript File -->
+  <script src="../js/main.js"></script>
+  <script src="../js/chartscript.js"></script>
+</body>
+
+</html>
