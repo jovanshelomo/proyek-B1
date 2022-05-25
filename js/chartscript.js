@@ -7,6 +7,8 @@
 //var latinAmerica = [40,20,10,16,24,38,74,167,508,784];
 //var northAmerica = [6,3,2,2,7,26,82,172,312,433];
 
+//import 'chartjs-plugin-datalabels'
+
 var ctx = document.getElementById("myChart");
 
 //Type, data, options
@@ -20,6 +22,47 @@ var chartGraph = new Chart (ctx, {
     ]},
     plugins: [ChartDataSource],
     options: {
+        tooltips: {
+					enabled: true
+				},
+        hover: 	{
+                animationDuration: 1
+				},			
+        animation: {
+            duration: 1,
+            onComplete: function () {
+                var chartInstance = this.chart,
+                    ctx = chartInstance.ctx;
+                    ctx.textAlign = 'center';
+                    ctx.fillStyle = "rgba(255, 255, 255, 1)";
+					ctx.font = "14px Arial";
+                    ctx.textBaseline = 'bottom';
+                    // Loop through each data in the datasets
+                    this.data.datasets.forEach(function (dataset, i) {
+						for (var i = 0; i < dataset.data.length; i++) {
+							var model = dataset._meta[Object.keys(dataset._meta)[0]].data[i]._model,
+							total = dataset._meta[Object.keys(dataset._meta)[0]].total,
+							mid_radius = model.innerRadius + (model.outerRadius - model.innerRadius)/2,
+							start_angle = model.startAngle,
+							end_angle = model.endAngle,
+							mid_angle = start_angle + (end_angle - start_angle)/2;
+							var x = mid_radius * Math.cos(mid_angle);
+							var y = mid_radius * Math.sin(mid_angle);
+							ctx.fillStyle = '#fff';
+							if (i == 3){ // Darker text color for lighter background
+								ctx.fillStyle = '#444';
+							}
+							var percent = String(Math.round(dataset.data[i]/total*100)) + "%";      
+							//Don't Display If Legend is hide or value is 0
+							if(dataset.data[i] != 0 && dataset._meta[0].data[i].hidden != true) {
+								ctx.fillText(dataset.data[i], model.x + x, model.y + y);
+								// Display percent in another line, line break doesn't work for fillText
+								ctx.fillText(percent, model.x + x, model.y + y + 15);
+							}
+						}
+                    });
+                }
+            },			
         title: {
             display: true,
             fontSize: 30,
@@ -54,6 +97,31 @@ var chartGraph2 = new Chart (ctx2, {
     ]},
     plugins: [ChartDataSource],
     options: {
+        tooltips: {
+					enabled: true
+				},
+        hover: 	{
+                animationDuration: 1
+				},			
+        animation: {
+            duration: 1,
+            onComplete: function () {
+                var chartInstance = this.chart,
+                    ctx = chartInstance.ctx;
+                    ctx.textAlign = 'center';
+                    ctx.fillStyle = "rgba(255, 255, 255, 1)";
+					ctx.font = "14px Arial";
+                    ctx.textBaseline = 'bottom';
+                    // Loop through each data in the datasets
+                    this.data.datasets.forEach(function (dataset, i) {
+                        var meta = chartInstance.controller.getDatasetMeta(i);
+                        meta.data.forEach(function (bar, index) {
+                            var data = dataset.data[index];
+                            ctx.fillText(data, bar._model.x, bar._model.y - 5);
+                        });
+                    });
+                }
+            },			
         title: {
             display: true,
             fontSize: 30,
@@ -93,6 +161,32 @@ var chartGraph3 = new Chart (ctx3, {
     ]},
     plugins: [ChartDataSource],
     options: {
+        tooltips: {
+					enabled: true
+				},
+        hover: 	{
+                animationDuration: 1
+				},			
+        animation: {
+            duration: 1,
+            onComplete: function () {
+                var chartInstance = this.chart,
+                    ctx = chartInstance.ctx;
+                    ctx.textAlign = 'center';
+                    ctx.fillStyle = "rgba(255, 255, 255, 1)";
+					ctx.font = "14px Arial";
+                    ctx.textBaseline = 'bottom';
+                    // Loop through each data in the datasets
+                    this.data.datasets.forEach(function (dataset, i) {
+                        var meta = chartInstance.controller.getDatasetMeta(i);
+                        meta.data.forEach(function (bar, index) {
+                            var data = dataset.data[index];
+                            ctx.fillText(data, bar._model.x, bar._model.y - 5);
+                        });
+                    });
+                }
+            },	
+		
         title: {
             display: true,
             fontSize: 30,
@@ -133,6 +227,40 @@ var chartGraph4 = new Chart (ctx4, {
     ]},
     plugins: [ChartDataSource],
     options: {
+        tooltips: {
+					enabled: true
+				},
+        hover: 	{
+                animationDuration: 1
+				},			
+        animation: {
+            duration: 1,
+            onComplete: function () {
+                var chartInstance = this.chart,
+                    ctx = chartInstance.ctx;
+                    ctx.textAlign = 'center';
+                    ctx.fillStyle = "rgba(255, 255, 255, 1)";
+					ctx.font = "14px Arial";
+                    ctx.textBaseline = 'bottom';
+                    // Loop through each data in the datasets
+                    this.data.datasets.forEach(function (dataset, i) {
+                        var meta = chartInstance.controller.getDatasetMeta(i);
+							var model = dataset._meta[Object.keys(dataset._meta)[0]].data[i]._model,
+							total = dataset._meta[Object.keys(dataset._meta)[0]].total,
+							mid_radius = model.innerRadius + (model.outerRadius - model.innerRadius)/2,
+							start_angle = model.startAngle,
+							end_angle = model.endAngle,
+							mid_angle = start_angle + (end_angle - start_angle)/2;
+							var x = mid_radius * Math.cos(mid_angle);
+							var y = mid_radius * Math.sin(mid_angle);						
+                        meta.data.forEach(function (bar, index) {
+                            var data = dataset.data[index];
+                            ctx.fillText(data, bar._model.x, bar._model.y - 5);
+                        });
+                    });
+                }
+            },	
+			
         title: {
             display: true,
             fontSize: 30,
@@ -170,10 +298,36 @@ var chartGraph5 = new Chart (ctx5, {
     ]},
     plugins: [ChartDataSource],
     options: {
+        tooltips: {
+					enabled: true
+				},
+        hover: 	{
+                animationDuration: 1
+				},			
+        animation: {
+            duration: 1,
+            onComplete: function () {
+                var chartInstance = this.chart,
+                    ctx = chartInstance.ctx;
+                    ctx.textAlign = 'center';
+                    ctx.fillStyle = "rgba(255, 255, 255, 1)";
+					ctx.font = "14px Arial";
+                    ctx.textBaseline = 'bottom';
+                    // Loop through each data in the datasets
+                    this.data.datasets.forEach(function (dataset, i) {
+                        var meta = chartInstance.controller.getDatasetMeta(i);
+                        meta.data.forEach(function (bar, index) {
+                            var data = dataset.data[index];
+                            ctx.fillText(data, bar._model.x, bar._model.y - 5);
+                        });
+                    });
+                }
+            },			
+		
         title: {
             display: true,
             fontSize: 30,
-            text: 'Data Menang / Kalah'
+            text: 'Data Perusahaan Menang / Kalah'
         },
 		
 		scales: {
@@ -207,11 +361,53 @@ var chartGraph6 = new Chart (ctx6, {
     ]},
     plugins: [ChartDataSource],
     options: {
+		tooltips: {
+					enabled: true
+				},
+        hover: 	{
+                animationDuration: 1
+				},			
+        animation: {
+            duration: 1,
+            onComplete: function () {
+                var chartInstance = this.chart,
+                    ctx = chartInstance.ctx;
+                    ctx.textAlign = 'center';
+                    ctx.fillStyle = "rgba(255, 255, 255, 1)";
+					ctx.font = "18px Arial";
+                    ctx.textBaseline = 'bottom';
+                    // Loop through each data in the datasets
+                    this.data.datasets.forEach(function (dataset, i) {
+                        var meta = chartInstance.controller.getDatasetMeta(i);
+						var incrementX = 30;
+						var incrementY = 30;
+						var model = dataset._meta[Object.keys(dataset._meta)[0]].data[i]._model,
+						total = dataset._meta[Object.keys(dataset._meta)[0]].total,
+						mid_radius = model.innerRadius + (model.outerRadius - model.innerRadius)/2,
+						start_angle = model.startAngle,
+						end_angle = model.endAngle,
+						mid_angle = start_angle + (end_angle - start_angle)/2;
+						var x = mid_radius * Math.cos(mid_angle);
+						var y = mid_radius * Math.sin(mid_angle);
+						ctx.fillStyle = '#fff';
+						if (i == 3){ // Darker text color for lighter background
+							ctx.fillStyle = '#444';
+						}							
+                        meta.data.forEach(function (pie, index) {
+                            var data = dataset.data[index];
+							var percent = String(Math.round(data/total*100)) + "%";  
+                            ctx.fillText(data, pie._model.x + incrementX, pie._model.y - incrementY - incrementY);
+							ctx.fillText(percent, pie._model.x + incrementX, pie._model.y - incrementY);
+							incrementX = incrementX - 60;
+                        });
+                    });
+                }
+            },	
         title: {
             display: true,
             fontSize: 30,
             text: 'Data Tender Selesai Dan Tender Batal'
-        },	
+        },
 
         plugins: {
             datasource: {
@@ -220,7 +416,36 @@ var chartGraph6 = new Chart (ctx6, {
 				datasetLabels: "'Jumlah tender selesai dan batal'!C3",
 				indexLabels: "'Jumlah tender selesai dan batal'!B4:B5",
 				data: "'Jumlah tender selesai dan batal'!C4:C5"
-            }
+            },
+	        labels: {
+				render: 'percentage',
+				fontColor: ['green', 'white', 'red'],
+				precision: 2
+			}
+//			datalabels:{
+//				formatter:(value, ctx)=>{
+//					return value + '%';
+//				}, 
+//				display: true,
+//				align: 'bottom',
+//				backgroundColor: '#ccc',
+//				borderRadius: 3,
+//				font: {
+//					size: 18
+//				}	
+//			datalabels: {
+//				formatter: (value, ctx6) => {
+//					let datasets = ctx6.chart.data.datasets;
+//					if (datasets.indexOf(ctx6.dataset) === datasets.length - 1) {
+//						let sum = datasets[0].data.reduce((a, b) => a + b, 0);
+//						let percentage = Math.round((value / sum) * 100) + '%';
+//						return percentage;
+//					} else {
+//						return percentage;
+//					}
+//				},
+//				color: '#fff',
+//			}
         }
     }
 });
@@ -231,18 +456,46 @@ var ctx7 = document.getElementById("myChart7");
 
 var chartGraph7 = new Chart (ctx7, {
     type: 'bar',
+	
     data: {
         datasets: [{
-            backgroundColor: "#FF00C9"
+            backgroundColor: "#FF00C9",
         }
     ]},
     plugins: [ChartDataSource],
     options: {
+        tooltips: {
+					enabled: true
+				},
+        hover: 	{
+                animationDuration: 1
+				},			
+        animation: {
+            duration: 1,
+            onComplete: function () {
+                var chartInstance = this.chart,
+                    ctx = chartInstance.ctx;
+                    ctx.textAlign = 'center';
+                    ctx.fillStyle = "rgba(255, 255, 255, 1)";
+					ctx.font = "14px Arial";
+                    ctx.textBaseline = 'bottom';
+                    // Loop through each data in the datasets
+                    this.data.datasets.forEach(function (dataset, i) {
+                        var meta = chartInstance.controller.getDatasetMeta(i);
+                        meta.data.forEach(function (bar, index) {
+                            var data = dataset.data[index];
+                            ctx.fillText(data, bar._model.x, bar._model.y - 5);
+                        });
+                    });
+                }
+            },		
+		
         title: {
             display: true,
             fontSize: 30,
             text: '5 Tender Dengan HPS Terbesar'
         },	
+
 		scales: {
 			xAxes: [{
 				barPercentage: 0.6
@@ -254,7 +507,7 @@ var chartGraph7 = new Chart (ctx7, {
 				rowMapping: 'index',
 				datasetLabels: "'Top 5 tender terbesar dan terke'!E19",
 				indexLabels: "'Top 5 tender terbesar dan terke'!B20:B24",
-				data: "'Top 5 tender terbesar dan terke'!E20:E24"
+				data: "'Top 5 tender terbesar dan terke'!E20:E24",
             }
         }
     }
@@ -273,6 +526,32 @@ var chartGraph8 = new Chart (ctx8, {
     ]},
     plugins: [ChartDataSource],
     options: {
+        tooltips: {
+					enabled: true
+				},
+        hover: 	{
+                animationDuration: 1
+				},			
+        animation: {
+            duration: 1,
+            onComplete: function () {
+                var chartInstance = this.chart,
+                    ctx = chartInstance.ctx;
+                    ctx.textAlign = 'center';
+                    ctx.fillStyle = "rgba(255, 255, 255, 1)";
+					ctx.font = "14px Arial";
+                    ctx.textBaseline = 'bottom';
+                    // Loop through each data in the datasets
+                    this.data.datasets.forEach(function (dataset, i) {
+                        var meta = chartInstance.controller.getDatasetMeta(i);
+                        meta.data.forEach(function (bar, index) {
+                            var data = dataset.data[index];
+                            ctx.fillText(data, bar._model.x, bar._model.y - 5);
+                        });
+                    });
+                }
+            },			
+		
         title: {
             display: true,
             fontSize: 30,
@@ -308,6 +587,32 @@ var chartGraph9 = new Chart (ctx9, {
     ]},
     plugins: [ChartDataSource],
     options: {
+        tooltips: {
+					enabled: true
+				},
+        hover: 	{
+                animationDuration: 1
+				},			
+        animation: {
+            duration: 1,
+            onComplete: function () {
+                var chartInstance = this.chart,
+                    ctx = chartInstance.ctx;
+                    ctx.textAlign = 'center';
+                    ctx.fillStyle = "rgba(255, 255, 255, 1)";
+					ctx.font = "14px Arial";
+                    ctx.textBaseline = 'bottom';
+                    // Loop through each data in the datasets
+                    this.data.datasets.forEach(function (dataset, i) {
+                        var meta = chartInstance.controller.getDatasetMeta(i);
+                        meta.data.forEach(function (bar, index) {
+                            var data = dataset.data[index];
+                            ctx.fillText(data, bar._model.x, bar._model.y - 5);
+                        });
+                    });
+                }
+            },			
+		
         title: {
             display: true,
             fontSize: 30,
@@ -344,6 +649,32 @@ var chartGraph10 = new Chart (ctx10, {
     ]},
     plugins: [ChartDataSource],
     options: {
+        tooltips: {
+					enabled: true
+				},
+        hover: 	{
+                animationDuration: 1
+				},			
+        animation: {
+            duration: 1,
+            onComplete: function () {
+                var chartInstance = this.chart,
+                    ctx = chartInstance.ctx;
+                    ctx.textAlign = 'center';
+                    ctx.fillStyle = "rgba(255, 255, 255, 1)";
+					ctx.font = "14px Arial";
+                    ctx.textBaseline = 'bottom';
+                    // Loop through each data in the datasets
+                    this.data.datasets.forEach(function (dataset, i) {
+                        var meta = chartInstance.controller.getDatasetMeta(i);
+                        meta.data.forEach(function (bar, index) {
+                            var data = dataset.data[index];
+                            ctx.fillText(data, bar._model.x, bar._model.y - 5);
+                        });
+                    });
+                }
+            },			
+		
         title: {
             display: true,
             fontSize: 30,
@@ -365,4 +696,5 @@ var chartGraph10 = new Chart (ctx10, {
         }
     }
 });
+
 Chart.defaults.global.defaultFontColor = "#fff";
